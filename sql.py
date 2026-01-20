@@ -1,6 +1,6 @@
 from ETL_VBP import df_vbp
 import psycopg2
-from conexão import conexao
+from conexao import conexao
 
 def executar_sql():
     

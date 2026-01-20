@@ -30,7 +30,7 @@ df_vbp = df_vbp.rename(columns={'milhões R$': 'Valor'})
 print(df_vbp.info())
 
 df_vbp.to_excel("ajustado.xlsx", index=False)
-
+print(df_vbp.head())
 if __name__ == "__main__":
     from sql import executar_sql
     executar_sql()
