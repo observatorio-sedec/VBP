@@ -10,12 +10,12 @@ url = f"https://www.gov.br/agricultura/pt-br/assuntos/politica-agricola/arquivos
 
 response = rq.get(url)
 if response.status_code == 200:
-    with open('C:\\Users\\LucasFreitas\\Documents\\Lucas Freitas Arquivos\\DATAHUB\\DADOS\\VBP\\dados_vbp.xlsx', 'wb') as file:
+    with open('dados_vbp.xlsx', 'wb') as file:
         file.write(response.content)
 else:
     print(f"Erro ao baixar o arquivo: {response.status_code}")
     
-df_vbp = pd.read_excel('C:\\Users\\LucasFreitas\\Documents\\Lucas Freitas Arquivos\\DATAHUB\\DADOS\\VBP\\dados_vbp.xlsx', sheet_name='BASE')
+df_vbp = pd.read_excel('dados_vbp.xlsx', sheet_name='BASE')
 df_vbp = df_vbp[df_vbp['COD UF'] != 'BR']
 df_vbp['Ano'] = pd.to_datetime('01' + '/' + '01' + '/' + df_vbp['Ano'].astype(str) , format='%d/%m/%Y', utc=False)
 df_vbp['Ano'] = df_vbp['Ano'].dt.date
