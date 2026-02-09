@@ -40,7 +40,7 @@ def executar_sql():
     VALUES (%s, %s, %s, %s, %s, %s);
     '''
     try:
-        for idx, i in df_vbp.iterrows():
+        for i in df_vbp.iter_rows(named=True):
             dados = (
                 i['UF'],
                 i['PRODUTO'],
